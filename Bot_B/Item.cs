@@ -14,21 +14,24 @@ namespace Bot_B {
 		public int Id { get; }
 
 		public Item (string name, double price, string desc) {
-
-
-
+            _name = name;
+		    _price = price;
+		    _desc = desc; 
 		}
 
-		public string GetDesc () {
-			throw new NotImplementedException();
+		public string GetDesc ()
+		{
+		    return _desc;
 		}
 
-		public string GetName () {
-			throw new NotImplementedException();
+		public string GetName ()
+		{
+		    return _name;
 		}
 
-		public double GetPrice () {
-			throw new NotImplementedException();
+		public double GetPrice ()
+		{
+		    return _price; 
 		}
 	}
 }
