@@ -29,7 +29,7 @@ namespace Bot_B {
 		private void SendItem () {
 		var rnd = new Random();
 			var itemNumber = rnd.Next(_stores.Count);
-			Item itemToSend = ItemFactory.create
+			Item itemToSend = ItemFactory.crea
 _stores[itemNumber].DeliverItem();
 		}
 
