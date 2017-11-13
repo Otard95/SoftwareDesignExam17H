@@ -22,7 +22,7 @@ namespace Bot_B {
 			return null;
 		}
 
-		public static Item CreateSpecific (double price)
+		public static Item CreateSpecific (params ItemProperties[] _parameters, double price)
 		{
 
 
