@@ -10,11 +10,15 @@ namespace Bot_B {
 		private List<Iitem> _items;
 		private Log _log;
 
-		public List<Iitem> Items { get; }
+		public List<Iitem> Items { get {
+				return _items;
+			}
+		}
 		public string Name { get; }
 
-		public Store (string _name) {
+		public Store (string name) {
 
+			Name = name;
 			_items = new List<Iitem>();
 			_log = Log.Instance;
 
