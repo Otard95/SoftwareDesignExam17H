@@ -11,8 +11,6 @@ namespace Bot_B {
 		private double _price;
 		private string _desc;
 
-		public int Id { get; }
-
 		public Item (string name, double price, string desc) {
             _name = name;
 		    _price = price;
