@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace Bot_B {
 	class Log {
 
+		private Object _lock = new Object();
+
 		private static Log _instace = null;
 		private List<LogItem> _entries;
 
@@ -23,21 +25,30 @@ namespace Bot_B {
 			}
 		}
 
-		public void Write (LogItem _item) {
+		public void Write (LogItem item) {
 
+			lock(_lock) {
 
+				_entries.Add(item);
+
+			}
 
 		}
 
-		public void Write (string _sender, string _msg) {
+		public void Write (string sender, string msg) {
 
+			LogItem new_item = new LogItem(sender, msg);
 
+			Write(new_item);
 
 		}
 
 		public void Save () {
 
-
+			/*
+			 * ## Save to file
+			 * ## If we have time
+			 */
 
 		}
 
