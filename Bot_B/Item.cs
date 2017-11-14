@@ -12,24 +12,23 @@ namespace Bot_B {
 		private string _desc;
 
 		public Item (string name, double price, string desc) {
-            _name = name;
-		    _price = price;
-		    _desc = desc; 
+
+			_name = name;
+			_price = price;
+			_desc = desc;
+
 		}
 
-		public string GetDesc ()
-		{
-		    return _desc;
+		public string GetDesc () {
+			return _desc;
 		}
 
-		public string GetName ()
-		{
-		    return _name;
+		public string GetName () {
+			return _name;
 		}
 
-		public double GetPrice ()
-		{
-		    return _price; 
+		public double GetPrice () {
+			return _price;
 		}
 	}
 }
