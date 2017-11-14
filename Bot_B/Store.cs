@@ -43,8 +43,8 @@ namespace Bot_B {
 														item_to_return.GetName() +
 														" - " +
 														item_to_return.GetDesc() +
-														". For: "
-														+ item_to_return.GetPrice());
+														". For: " +
+														item_to_return.GetPrice());
 
 					return item_to_return;
 				} else {
@@ -60,6 +60,12 @@ namespace Bot_B {
 			lock (_lock) {
 
 				_items.Add(item);
+				_log.Write(Name, "Recieved item: " +
+														item.GetName() +
+														" - " +
+														item.GetDesc() +
+														". Sells for: " +
+														item.GetPrice());
 
 			}
 
@@ -71,6 +77,12 @@ namespace Bot_B {
 
 				if (_running) {
 					Iitem new_item = ItemFactory.CreateRandom("Temp Name", 999.99, "Temp Desc"); // TODO: Name generation
+					_log.Write(Name, "Made item: " +
+														new_item.GetName() +
+														" - " +
+														new_item.GetDesc() +
+														". Sells For: " +
+														new_item.GetPrice());
 					DeliverItem(new_item);
 				}
 				
