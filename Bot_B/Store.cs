@@ -38,6 +38,14 @@ namespace Bot_B {
 					int index = _items.IndexOf(item);
 					Iitem item_to_return = _items[index];
 					_items.Remove(item);
+					
+					_log.Write(Name, "Sold item: " +
+														item_to_return.GetName() +
+														" - " +
+														item_to_return.GetDesc() +
+														". For: "
+														+ item_to_return.GetPrice());
+
 					return item_to_return;
 				} else {
 					return null;
