@@ -8,21 +8,21 @@ namespace Bot_B {
 
 		private ItemFactory () { } // Prevent initialization
 
-		public static Item Create (string _name, double _price, string _desc)
+		public static Item Create (double price)
 		{
 
 
 			return null;
 		}
 
-		public static Item CreateRandom (string _name, double _price, string _desc)
+		public static Item CreateRandom (double price)
 		{
 
 
 			return null;
 		}
 
-		public static Item CreateSpecific (string _name, double _price, string _desc, params ItemProperties[] _parameters)
+		public static Item CreateSpecific (params ItemProperties[] _parameters, double price)
 		{
 
 
