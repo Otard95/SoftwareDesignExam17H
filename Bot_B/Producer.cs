@@ -41,8 +41,7 @@ namespace Bot_B {
 		}
 
 		private void SendItem () {
-
-			 
+			
 			int recieving_store = rng.Next(_stores.Count);
 			int preset = rng.Next(_presets.Count);
 
