@@ -9,9 +9,11 @@ namespace Bot_B {
 
 		public string Sender { get; }
 		public string Message { get; }
+		public DateTime Timestamp { get; }
 
 		public LogItem (string _sender, string _msg) {
 
+			Timestamp = DateTime.Now;
 			Sender = _sender;
 			Message = _msg;
 
