@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Bot_B {
 	class ItemFactory {
 
+		// _names and _descriptions should be the same size
 		private static string[] _names = {
 			"Some Name",
 			"Another Name",
@@ -22,11 +23,17 @@ namespace Bot_B {
 
 		public static Iitem Create (double price) {
 
+			var random = new Random();
+			/*                                     if defferent size pick smallest */
+			int name_desc_index = random.Next( Math.Min(_names.Length, _descriptions.Length) );
+			var new_item = new Item(_names[name_desc_index], price, _descriptions[name_desc_index]);
 
-			return null;
+			return new_item;
+
 		}
 
 		public static Iitem CreateRandom (double price) {
+
 			Array values = Enum.GetValues(typeof(ItemProperties));
 			Random random = new Random();
 
@@ -43,10 +50,7 @@ namespace Bot_B {
 
 		public static Iitem CreateSpecific (double price, params ItemProperties[] _parameters) {
 
-			var random = new Random();
-			/*                                     if defferent size pick smallest */
-			int name_desc_index = random.Next( Math.Min(_names.Length, _descriptions.Length) );
-			var new_item = new Item(_names[name_desc_index], price, _descriptions[name_desc_index]);
+			var new_item = ItemFactory.Create(price);
 
 			foreach (ItemProperties prop in _parameters) {
 
