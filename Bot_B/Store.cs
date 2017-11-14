@@ -7,12 +7,15 @@ using System.Threading;
 namespace Bot_B {
 	class Store {
 
+		// Lock for thread safe opperations
 		private Object _lock;
 
+		// Private fields
 		private List<Iitem> _items;
 		private Log _log;
 		private bool _running;
 
+		// Public fields/proporties
 		public List<Iitem> Items {
 			get {
 				return _items;
@@ -32,9 +35,10 @@ namespace Bot_B {
 
 		public Iitem Buy (Iitem item) {
 
-			lock (_lock) {
+			lock (_lock) { // Lock so we don't have two threads trying to buy the same thing
 
-				if (_items.Contains(item)) {
+				// is the item still for sale?
+				if (_items.Contains(item)) { // yes
 					int index = _items.IndexOf(item);
 					Iitem item_to_return = _items[index];
 					_items.Remove(item);
@@ -47,8 +51,15 @@ namespace Bot_B {
 														item_to_return.GetPrice());
 
 					return item_to_return;
-				} else {
+				} else { // no
+
+					_log.Write(Name, "Item allready sold: " +
+														item.GetName() +
+														" - " +
+														item.GetDesc());
+
 					return null;
+
 				}
 
 			}
