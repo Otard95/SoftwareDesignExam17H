@@ -12,10 +12,10 @@ namespace Bot_B {
 		private List<Store> _stores;
 
 		public Producer (List<Store> stores, string name) {
+
 			_name = name;
 			_stores = stores;
 			_presets = null;
-
 
 		}
 
@@ -26,13 +26,15 @@ namespace Bot_B {
 		}
 
 		private void SendItem () {
+
 			var rng = new Random();
 			int recieving_store = rng.Next(_stores.Count);
-			int preset = rng.Next(_presets.Count); 
+			int preset = rng.Next(_presets.Count);
 
 			Item item_to_send = ItemFactory.CreateSpecific(_presets[preset));
 
 			_stores[recieving_store].DeliverItem(item_to_send);
+
 		}
 
 	}
