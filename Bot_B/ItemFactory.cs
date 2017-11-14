@@ -50,7 +50,7 @@ namespace Bot_B {
 
 		public static Iitem CreateSpecific (double price, params ItemProperties[] _parameters) {
 
-			var new_item = ItemFactory.Create(price);
+			Iitem new_item = ItemFactory.Create(price);
 
 			foreach (ItemProperties prop in _parameters) {
 
