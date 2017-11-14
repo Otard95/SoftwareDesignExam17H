@@ -9,7 +9,7 @@ namespace Bot_B {
 
 		private Item _original_item;
 
-	    public abstract string GetDesc();
+	  public abstract string GetDesc();
 		public abstract string GetName ();
 		public abstract double GetPrice ();
 	}
