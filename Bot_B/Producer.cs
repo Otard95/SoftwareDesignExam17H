@@ -31,7 +31,7 @@ namespace Bot_B {
 			int recieving_store = rng.Next(_stores.Count);
 			int preset = rng.Next(_presets.Count);
 
-			Item item_to_send = ItemFactory.CreateSpecific(_presets[preset));
+			Item item_to_send = ItemFactory.CreateSpecific(_presets[preset].ToArray(), 999.99);
 
 			_stores[recieving_store].DeliverItem(item_to_send);
 
