@@ -13,13 +13,27 @@ namespace Bot_B {
 
 		public string Name { get; }
 
-		public Consumer (string _name) {
+		public Consumer (string name) {
+
+			Name = name;
+			_skill = new Random().Next(0, 100);
+			_log = Log.Instance;
+
+			_wich_list = new List<Iitem>();
+			int list_count = new Random().Next(3, 5);
+			for (int i = 0; i < list_count; i++) {
+				_wich_list.Add(ItemFactory.CreateRandom(0)); // Price in this case is not imporant
+			}
+
+		}
+
+		public void OnNewItem(object sender, EventArgs e) {
 
 
 
 		}
 
-		public void StartConsumer () { }
+		// public void StartConsumer () { } // Doing event based
 
 	}
 }
