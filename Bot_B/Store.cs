@@ -87,7 +87,7 @@ namespace Bot_B {
 			while (_running || _items.Count > 0) {
 
 				if (_running) {
-					Iitem new_item = ItemFactory.CreateRandom("Temp Name", 999.99, "Temp Desc"); // TODO: Name generation
+					Iitem new_item = ItemFactory.CreateRandom(999.99);
 					_log.Write(Name, "Made item: " +
 														new_item.GetName() +
 														" - " +
