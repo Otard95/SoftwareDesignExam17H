@@ -34,8 +34,8 @@ namespace Bot_B {
 		{
 			while (_isRunning)
 			{
-				Thread.Sleep(450);
 				SendItem();
+				Thread.Sleep(450);
 			}
 
 		}
