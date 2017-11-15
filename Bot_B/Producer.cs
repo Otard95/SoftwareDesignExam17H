@@ -23,10 +23,25 @@ namespace Bot_B {
 
 		public Producer (List<Store> stores, string name) {
 
+			rng = new Random();
 			_name = name;
 			_stores = stores;
+
+			var item_props = new List< ItemProperties>();
+			Array values = Enum.GetValues(typeof(ItemProperties));
+
+			int num_presetes = rng.Next(3, 6);
+			for (int i = 0; i < num_presetes; i++) {
+				int j = 0;
+				while (rng.Next(10) < ( 7 - (j*1.5) )) {
+					// TODO: No duplicate addons(ItemProporties)
+					item_props.Add((ItemProperties) values.GetValue(rng.Next(values.Length)));
+				}
+				_presets.Add(item_props);
+				item_props.Clear();
+			} 
+
 			_presets = null;
-			rng= new Random();
 
 		}
 
