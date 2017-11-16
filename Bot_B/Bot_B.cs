@@ -11,15 +11,15 @@ namespace Bot_B {
 		private List<Store>    _store_list;
 		private List<Consumer> _consumer_list;
 		private List<Producer> _producer_list;
-		private List<Thread> _treads;
+		private List<Thread>   _treads;
 
 		public Bot_B () {
 
-			_store_list = new List<Store>();
+			_store_list    = new List<Store>();
 			_consumer_list = new List<Consumer>();
 			_producer_list = new List<Producer>();
+			_treads        = new List<Thread>();
 			
-
 			var rng = new Random();
 			int num_stores    = rng.Next(4, 8);
 			int num_consumers = rng.Next(4, 8);
@@ -87,7 +87,7 @@ namespace Bot_B {
 			foreach (Thread t in _treads) {
 				t.Join();
 			}
-			
+
 		}
 
 	}
