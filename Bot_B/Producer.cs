@@ -13,12 +13,12 @@ namespace Bot_B {
 		private List<List<ItemProperties>> _presets;
 		private List<Store> _stores;
 		private Random rng;
-		private	bool _isRunning = true;
+		private	bool _running = true;
 
 		public bool IsRunning
 		{
-			get => _isRunning;
-			set => _isRunning = value;
+			get => _running;
+			set => _running = value;
 		}
 
 		public Producer (List<Store> stores, string name) {
@@ -46,13 +46,15 @@ namespace Bot_B {
 
 		public void Start ()
 		{
-			while (_isRunning)
+			while (_running)
 			{
 				SendItem();
 				Thread.Sleep(450);
 			}
 
 		}
+
+		public void Shutdown () => _running = false;
 
 		private void SendItem () {
 			
