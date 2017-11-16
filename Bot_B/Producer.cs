@@ -26,6 +26,7 @@ namespace Bot_B {
 			rng = new Random();
 			_name = name;
 			_stores = stores;
+			_presets = new List<List<ItemProperties>>();
 
 			var item_props = new List< ItemProperties>();
 			Array values = Enum.GetValues(typeof(ItemProperties));
@@ -39,9 +40,7 @@ namespace Bot_B {
 				}
 				_presets.Add(item_props);
 				item_props.Clear();
-			} 
-
-			_presets = null;
+			}
 
 		}
 
