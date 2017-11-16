@@ -13,7 +13,7 @@ namespace Bot_B {
 
 		public Bot_B () {
 
-			_store_list    = new List<Store>();
+			_store_list = new List<Store>();
 			_consumer_list = new List<Consumer>();
 			_producer_list = new List<Producer>();
 
@@ -27,7 +27,12 @@ namespace Bot_B {
 			}
 
 			for (int i = 0; i < num_consumers; i++) {
-				_consumer_list.Add(new Consumer("Temp")); // TODO: Name geneteation
+				var new_consumer = new Consumer("Temp");
+				for (int j = 0; j < _store_list.Count; j++) { // subscribe the consumer to the stores new item event
+					_store_list[i].NewItemEvent += new_consumer.OnNewItem;
+				}
+				_consumer_list.Add(new_consumer); // TODO: Name geneteation
+
 			}
 
 			for (int i = 0; i < num_producers; i++) {
@@ -36,7 +41,7 @@ namespace Bot_B {
 				List<Store> delivery_list = _store_list.Where( item => rng.Next(10) < 3 ).ToList();
 
 				while (delivery_list.Count == 0) { // This list can never be empty
-					delivery_list = _store_list.Where(item => rng.Next(10) < 3).ToList();
+					delivery_list = _store_list.Where(item => rng.Next(10) < 4).ToList();
 				}
 
 				_producer_list.Add(new Producer(delivery_list, "Temp")); // TODO: Name geneteation
@@ -46,6 +51,7 @@ namespace Bot_B {
 
 		public void Start () {
 
+			// Start all the stores then all the producers
 
 
 		}
