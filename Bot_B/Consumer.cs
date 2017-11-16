@@ -29,7 +29,10 @@ namespace Bot_B {
 
 		public void OnNewItem(object sender, EventArgs e) {
 
+			var store = ((Store) sender);
+			_log.Write(Name, "Heard of a new item in " + store.Name);
 
+			// See if store has perfered item
 
 		}
 
