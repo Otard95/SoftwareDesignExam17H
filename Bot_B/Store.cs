@@ -79,6 +79,9 @@ namespace Bot_B {
 														". Sells for: " +
 														item.GetPrice());
 
+				// Output that the sotore got a new item.
+				Console.WriteLine("{0} - Got the new item: {1} - {2} | Selling for: {3}", Name, item.GetName(), item.GetDesc(), item.GetPrice());
+
 				NewItemEvent?.Invoke(this, EventArgs.Empty); // Broadcast that the store has a new item
 
 			}
