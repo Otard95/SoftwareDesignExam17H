@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Bot_B {
 	class Bot_B {
@@ -10,12 +11,14 @@ namespace Bot_B {
 		private List<Store>    _store_list;
 		private List<Consumer> _consumer_list;
 		private List<Producer> _producer_list;
+		private List<Thread> _treads;
 
 		public Bot_B () {
 
 			_store_list = new List<Store>();
 			_consumer_list = new List<Consumer>();
 			_producer_list = new List<Producer>();
+			
 
 			var rng = new Random();
 			int num_stores    = rng.Next(4, 8);
@@ -51,9 +54,40 @@ namespace Bot_B {
 
 		public void Start () {
 
-			// Start all the stores then all the producers
+			// Setup threads for stores and consumers
+			for (int i = 0; i < _store_list.Count; i++) {
+				_treads.Add(new Thread(_store_list[i].StartStore));
+			}
+			for (int i = 0; i < _producer_list.Count; i++) {
+				_treads.Add(new Thread(_producer_list[i].Start));
+			}
 
+			// Start all treads
+			foreach (Thread t in _treads) {
+				t.Start();
+			}
+			// Make sure all threads are proporly running
+			foreach (Thread t in _treads) {
+				while (!t.IsAlive) ;
+			}
+			Thread.Sleep(1);
 
+			// Lests give the stores some time to run.
+			Thread.Sleep(4000);
+
+			// Now lets gracefully stop all threads
+			foreach (Producer p in _producer_list) {
+				p.Shutdown();
+			}
+			foreach (Store s in _store_list) {
+				s.Shutdown();
+			}
+
+			// Join all threads to make sure that they all are finished 
+			foreach (Thread t in _treads) {
+				t.Join();
+			}
+			
 		}
 
 	}
