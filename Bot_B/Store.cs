@@ -15,7 +15,7 @@ namespace Bot_B {
 		private Log _log;
 		private bool _running;
 
-		public EventHandler NewItemEvent;
+		public event EventHandler NewItemEvent;
 		// Public fields/proporties
 		public List<Iitem> Items {
 			get {
@@ -105,6 +105,8 @@ namespace Bot_B {
 			}
 
 		}
+
+		public void Shutdown() => _running = false;
 
 		// public List<Iitem> CommitBurglary (int _skill) { }
 
