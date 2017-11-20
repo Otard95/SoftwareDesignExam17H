@@ -5,9 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Bot_B {
-	enum ItemProperties {
-
-
-
-	}
+    enum ItemProperties
+    {
+        Furry,
+        Leather,
+        TigerPrint,
+        Bling,
+        Gold,
+        Keychain,
+        ExtraLayer,
+        Diaments, 
+        LCDDisplay,
+    };
 }
