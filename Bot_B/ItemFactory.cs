@@ -9,14 +9,27 @@ namespace Bot_B {
 
 		// _names and _descriptions should be the same size
 		private static string[] _names = {
-			"Some Name",
-			"Another Name",
-			"And another one"
+			"Flying carpet", 
+            "Vase", 
+            "Cape", 
+            "Whip", 
+            "Riffle",
+            "Goat", 
+            "Turban",
+            "shawl", 
+            "stool",
+            "plate",
 		};
 		private static string[] _descriptions = {
 			"Simple but usefull",
 			"Huge but light",
-			"Transparent and purple"
+            "Colorful but still cool", 
+            "Cool and hot", 
+            "Weighs next to nothing", 
+            "Cool stickers on", 
+            "Almost new", 
+            "Shaped like a horse", 
+            "Easy and portable", 
 		};
 
 		private ItemFactory () { } // Prevent initialization
