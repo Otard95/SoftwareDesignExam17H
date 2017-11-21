@@ -30,11 +30,5 @@ namespace Bot_B {
 		public double GetPrice () {
 			return _price;
 		}
-
-	    public string ToString()
-	    {
-	        return "Item name: " + GetName() + " Price: " + GetPrice() + " Discription: " + GetDesc(); 
-
-	    }
 	}
 }

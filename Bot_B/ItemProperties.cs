@@ -14,7 +14,7 @@ namespace Bot_B {
         Gold,
         Keychain,
         ExtraLayer,
-        Diaments, 
+        Diamond, 
         LCDDisplay,
     }
 }
