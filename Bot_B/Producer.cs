@@ -49,7 +49,7 @@ namespace Bot_B {
 			while (_running)
 			{
 				SendItem();
-				Thread.Sleep(450);
+				Thread.Sleep(1000);
 			}
 
 		}

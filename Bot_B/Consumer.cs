@@ -35,11 +35,18 @@ namespace Bot_B {
 
 			_log.Write(Name, "Heard of a new item in " + store.Name);
 
+			Iitem bought;
 			if (_wich_list.Contains(e.Item)) {
-				store.Buy(e.Item);
+				bought = store.Buy(e.Item);
 			} else {
 				Thread.Sleep(1);
-				store.Buy(e.Item);
+				bought = store.Buy(e.Item);
+			}
+
+			if (bought != null) {
+				// right align text
+				string output = String.Format("{0} - Bought the new item: {1} - {2} | For: {3}", Name, e.Item.GetName(), e.Item.GetDesc(), e.Item.GetPrice());
+				Console.WriteLine("{0," + (Console.BufferWidth - 1) + "}", output);
 			}
 
 		}

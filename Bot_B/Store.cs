@@ -105,7 +105,7 @@ namespace Bot_B {
 					DeliverItem(new_item);
 				}
 				
-				Thread.Sleep(500);
+				Thread.Sleep(1000);
 
 			}
 
