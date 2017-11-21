@@ -11,7 +11,7 @@
 
     public override string GetDesc()
     {
-        return _original_item.GetDesc() + " With Super-duper soft Furry ";
+        return _original_item.GetDesc() + " Feature: With Super-duper soft Furry ";
     }
 
     public override string GetName()

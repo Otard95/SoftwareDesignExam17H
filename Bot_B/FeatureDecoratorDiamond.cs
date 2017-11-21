@@ -11,7 +11,7 @@
 
         public override string GetDesc()
         {
-            return _original_item.GetDesc() + " With beautiful South-African Diamonds ";
+            return _original_item.GetDesc() + " Feature: With beautiful South-African Diamonds ";
         }
 
         public override string GetName()

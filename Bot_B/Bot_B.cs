@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +13,11 @@ namespace Bot_B {
 		private List<Consumer> _consumer_list;
 		private List<Producer> _producer_list;
 		private List<Thread>   _treads;
+		private List<string> _listOfConsumerNames;
+		private List<string> _listofStoreNames; 
 
 		public Bot_B () {
-
+			readFile();
 			_store_list    = new List<Store>();
 			_consumer_list = new List<Consumer>();
 			_producer_list = new List<Producer>();
@@ -49,7 +52,26 @@ namespace Bot_B {
 
 				_producer_list.Add(new Producer(delivery_list, "Temp")); // TODO: Name geneteation
 			}
+		}
 
+
+		public void readFile()
+		{
+			_listOfConsumerNames = new List<string>();
+			_listofStoreNames = new List<string>();
+			
+			var reader = new StreamReader("ConsumerNames");
+			string line; 
+			
+			while ((line = reader.ReadLine()) != null)
+			{
+				_listOfConsumerNames.Add(line);
+				
+			}
+
+		
+			
+			
 		}
 
 		public void Start () {

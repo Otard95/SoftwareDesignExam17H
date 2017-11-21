@@ -95,7 +95,10 @@ namespace Bot_B {
 			while (_running || _items.Count > 0) {
 
 				if (_running) {
-					Iitem new_item = ItemFactory.CreateRandom(999.99);
+					var rnd = new Random();
+					double price = rnd.Next(10, 5500);
+					
+					Iitem new_item = ItemFactory.CreateRandom(price);
 					_log.Write(Name, "Made item: " +
 														new_item.GetName() +
 														" - " +

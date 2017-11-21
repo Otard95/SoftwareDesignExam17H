@@ -11,7 +11,7 @@
 
         public override string GetDesc()
         {
-            return _orginal_item.GetDesc() + " Covered in 5-karat Gold "; 
+            return _orginal_item.GetDesc() + " Feature: Covered in 5-karat Gold "; 
         }
 
         public override string GetName()
