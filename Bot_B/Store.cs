@@ -45,7 +45,7 @@ namespace Bot_B {
 					int index = _items.IndexOf(item);
 					Iitem item_to_return = _items[index];
 					_items.Remove(item);
-					
+
 					_log.Write(Name, "Sold item: " +
 														item_to_return.GetName() +
 														" - " +
@@ -83,8 +83,8 @@ namespace Bot_B {
 
 				// Output that the sotore got a new item.
 				Console.WriteLine("{0} - Got the new item: {1} - {2} | Selling for: {3}", Name, item.GetName(), item.GetDesc(), item.GetPrice());
-
-				NewItemEvent?.Invoke(this, EventArgs.Empty); // Broadcast that the store has a new item
+				
+				NewItemEvent?.Invoke(this, new ItemEventArgs(item)); // Broadcast that the store has a new item
 
 			}
 

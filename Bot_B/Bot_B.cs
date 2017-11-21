@@ -32,7 +32,7 @@ namespace Bot_B {
 			for (int i = 0; i < num_consumers; i++) {
 				var new_consumer = new Consumer("Temp");
 				for (int j = 0; j < _store_list.Count; j++) { // subscribe the consumer to the stores new item event
-					_store_list[i].NewItemEvent += new_consumer.OnNewItem;
+					_store_list[j].NewItemEvent += new_consumer.OnNewItem;
 				}
 				_consumer_list.Add(new_consumer); // TODO: Name geneteation
 

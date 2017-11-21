@@ -5,10 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Bot_B {
-	class Program {
-		static void Main (string[] args) {
-			var b1 = new Bot_B();
-			b1.Start();
+	class ItemEventArgs : EventArgs {
+
+		public Iitem Item { get; }
+
+		public ItemEventArgs (Iitem item) : base() {
+			Item = item;
 		}
+
 	}
 }

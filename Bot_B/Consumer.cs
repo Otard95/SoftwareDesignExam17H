@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Bot_B {
 	class Consumer {
@@ -27,12 +28,19 @@ namespace Bot_B {
 
 		}
 
-		public void OnNewItem(object sender, EventArgs e) {
+		public void OnNewItem(object sender, EventArgs event_args) {
 
 			var store = ((Store) sender);
+			var e = (ItemEventArgs) event_args;
+
 			_log.Write(Name, "Heard of a new item in " + store.Name);
 
-			// See if store has perfered item
+			if (_wich_list.Contains(e.Item)) {
+				store.Buy(e.Item);
+			} else {
+				Thread.Sleep(1);
+				store.Buy(e.Item);
+			}
 
 		}
 
