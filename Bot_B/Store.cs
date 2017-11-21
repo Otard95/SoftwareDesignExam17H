@@ -29,6 +29,7 @@ namespace Bot_B {
 			Name = name;
 			_items = new List<Iitem>();
 			_log = Log.Instance;
+            _lock = new Object();
 
 			_running = true;
 
