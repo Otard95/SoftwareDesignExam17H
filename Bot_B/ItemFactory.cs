@@ -50,7 +50,7 @@ namespace Bot_B {
 			Array values = Enum.GetValues(typeof(ItemProperties));
 			Random random = new Random();
 
-			var item_props = new List< ItemProperties>();
+			var item_props = new List<ItemProperties>();
 			int i = 0;
 			while (random.Next(10) < (5 - i)) {
 				// TODO: No duplicate addons(ItemProporties)
@@ -68,8 +68,7 @@ namespace Bot_B {
 			foreach (ItemProperties prop in _parameters) {
 
 				switch (prop) {
-
-					// TODO: Add handler for furture propories
+                    
 
 					default:
 						throw new ArgumentException("Did not know how to handle ItemProporty : " + prop);
