@@ -55,6 +55,7 @@ namespace Bot_B {
 			while (random.Next(10) < (5 - i)) {
 				// TODO: No duplicate addons(ItemProporties)
 				item_props.Add((ItemProperties) values.GetValue(random.Next(values.Length)));
+			    i++; 
 			}
 
 			return ItemFactory.CreateSpecific(price, item_props.ToArray());

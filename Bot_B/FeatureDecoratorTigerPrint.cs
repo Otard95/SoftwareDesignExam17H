@@ -12,7 +12,7 @@
 
         public override string GetDesc()
         {
-            return _original_item.GetDesc() + "Covered in beautiful Tiger print"; 
+            return _original_item.GetDesc() + " Covered in beautiful Tiger print "; 
         }
 
         public override string GetName()
