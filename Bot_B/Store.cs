@@ -30,6 +30,7 @@ namespace Bot_B {
 			_items = new List<Iitem>();
 			_log = Log.Instance;
 
+			_lock = new object();
 			_running = true;
 
 		}
