@@ -22,7 +22,7 @@
 
     public override double GetPrice()
     {
-        return _original_item.GetPrice() + 4.2;
+        return _original_item.GetPrice() + 2.5;
     }
     }
 }

@@ -11,7 +11,7 @@
 
         public override string GetDesc()
         {
-            return _orginal_item.GetDesc() + "Gold coating"; 
+            return _orginal_item.GetDesc() + "Covered in 5-karat Gold"; 
         }
 
         public override string GetName()
@@ -21,7 +21,7 @@
 
         public override double GetPrice()
         {
-            return _orginal_item.GetPrice() + 4.4; 
+            return _orginal_item.GetPrice() + 7.4; 
         }
     }
 }

@@ -10,11 +10,7 @@ namespace Bot_B {
         Furry,
         Leather,
         TigerPrint,
-        Bling,
-        Gold,
-        Keychain,
-        ExtraLayer,
+        Gold,   
         Diamond, 
-        LCDDisplay,
     }
 }

@@ -68,7 +68,19 @@ namespace Bot_B {
 			foreach (ItemProperties prop in _parameters) {
 
 				switch (prop) {
-                    
+                    case ItemProperties.Gold: new_item = new FeatureDecoratorGold(new_item);
+                       break;
+                    case ItemProperties.Diamond: new_item = new FeatureDecoratorDiamond(new_item);
+                        break;
+
+                    case ItemProperties.Furry: new_item = new FeatureDecoratorFurry(new_item);
+                        break;
+
+                    case ItemProperties.Leather: new_item = new FeatureDecoratorLeather(new_item);
+                        break;
+
+                    case ItemProperties.TigerPrint: new_item = new FeatureDecoratorTigerPrint(new_item);
+                        break;
 
 					default:
 						throw new ArgumentException("Did not know how to handle ItemProporty : " + prop);

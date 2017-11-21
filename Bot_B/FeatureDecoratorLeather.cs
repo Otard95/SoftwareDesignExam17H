@@ -11,7 +11,7 @@
 
         public override string GetDesc()
         {
-            return _original_item.GetDesc() + "Leather bullshit.. "; 
+            return _original_item.GetDesc() + "Covered in high quality Leather"; 
         }
 
         public override string GetName()

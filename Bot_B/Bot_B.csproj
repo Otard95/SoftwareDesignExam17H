@@ -48,6 +48,11 @@
   <ItemGroup>
     <Compile Include="Bot_B.cs" />
     <Compile Include="Consumer.cs" />
+    <Compile Include="FeatureDecoratorDiamond.cs" />
+    <Compile Include="FeatureDecoratorFurry.cs" />
+    <Compile Include="FeatureDecoratorGold.cs" />
+    <Compile Include="FeatureDecoratorLeather.cs" />
+    <Compile Include="FeatureDecoratorTigerPrint.cs" />
     <Compile Include="Iitem.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="ItemDecorator.cs" />
