@@ -31,6 +31,7 @@ namespace Bot_B {
 			_log = Log.Instance;
             _lock = new Object();
 
+			_lock = new object();
 			_running = true;
 
 		}

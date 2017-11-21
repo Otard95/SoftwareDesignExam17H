@@ -50,11 +50,12 @@ namespace Bot_B {
 			Array values = Enum.GetValues(typeof(ItemProperties));
 			Random random = new Random();
 
-			var item_props = new List< ItemProperties>();
+			var item_props = new List<ItemProperties>();
 			int i = 0;
 			while (random.Next(10) < (5 - i)) {
 				// TODO: No duplicate addons(ItemProporties)
 				item_props.Add((ItemProperties) values.GetValue(random.Next(values.Length)));
+			    i++; 
 			}
 
 			return ItemFactory.CreateSpecific(price, item_props.ToArray());
@@ -68,8 +69,19 @@ namespace Bot_B {
 			foreach (ItemProperties prop in _parameters) {
 
 				switch (prop) {
+                    case ItemProperties.Gold: new_item = new FeatureDecoratorGold(new_item);
+                       break;
+                    case ItemProperties.Diamond: new_item = new FeatureDecoratorDiamond(new_item);
+                        break;
 
-					// TODO: Add handler for furture propories
+                    case ItemProperties.Furry: new_item = new FeatureDecoratorFurry(new_item);
+                        break;
+
+                    case ItemProperties.Leather: new_item = new FeatureDecoratorLeather(new_item);
+                        break;
+
+                    case ItemProperties.TigerPrint: new_item = new FeatureDecoratorTigerPrint(new_item);
+                        break;
 
 					default:
 						throw new ArgumentException("Did not know how to handle ItemProporty : " + prop);
