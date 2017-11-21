@@ -15,13 +15,21 @@ namespace Bot_B {
 		private List<Thread>   _treads;
 		private List<string> _listOfConsumerNames;
 		private List<string> _listofStoreNames; 
+		
 
 		public Bot_B () {
-			readFile();
+			_listOfConsumerNames = new List<string>();
+			_listofStoreNames = new List<string>();
+		
+			
 			_store_list    = new List<Store>();
 			_consumer_list = new List<Consumer>();
 			_producer_list = new List<Producer>();
 			_treads        = new List<Thread>();
+			
+			_listOfConsumerNames = readFile("ConsumerNames.txt");
+			_listofStoreNames = readFile("StoreNames.txt");
+
 			
 			var rng = new Random();
 			int num_stores    = rng.Next(4, 8);
@@ -55,24 +63,31 @@ namespace Bot_B {
 		}
 
 
-		public void readFile()
-		{
-			_listOfConsumerNames = new List<string>();
-			_listofStoreNames = new List<string>();
+		public List<string> readFile(string filename) {
 			
-			var reader = new StreamReader("ConsumerNames");
-			string line; 
-			
-			while ((line = reader.ReadLine()) != null)
+			List<string> _textlList = new List<string>();
+
+			try
 			{
-				_listOfConsumerNames.Add(line);
+				StreamReader reader = new StreamReader(filename);
+				string line;
+
+				while ((line = reader.ReadLine()) != null)
+				{					
+					_textlList.Add(line);
 				
+				}
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e);
+				throw;
 			}
 
-		
-			
-			
+			return _textlList; 
 		}
+		
+	
 
 		public void Start () {
 
