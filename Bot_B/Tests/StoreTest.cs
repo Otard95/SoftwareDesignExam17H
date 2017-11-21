@@ -10,13 +10,17 @@ namespace Bot_B.Test
   [TestFixture]
   public class StoreTests
   {
+    
     [Test]
-    public void Test1()
+    public void TestIfBuyDeliverTheItemIfExistInStore()
     {
       Store store = new Store("test");
-      Iitem testItem = store.Buy(new Item("Audi", 100, "Dette er en bil"));
-      Console.Write(testItem);
-      Assert.True(true);
+      Iitem tesItem = new Item("Audi", 100, "Dette er en bil");
+      
+      store.DeliverItem(tesItem);
+      Iitem testItem2 = store.Buy(tesItem);
+      
+      Assert.True(testItem2.Equals(tesItem));
     }
   }
 }
