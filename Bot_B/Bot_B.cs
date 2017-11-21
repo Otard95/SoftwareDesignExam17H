@@ -21,7 +21,6 @@ namespace Bot_B {
 			_listOfConsumerNames = new List<string>();
 			_listofStoreNames = new List<string>();
 		
-			
 			_store_list    = new List<Store>();
 			_consumer_list = new List<Consumer>();
 			_producer_list = new List<Producer>();
@@ -37,11 +36,12 @@ namespace Bot_B {
 			int num_producers = rng.Next(4, 8);
 
 			for (int i = 0; i < num_stores; i++) {
-				_store_list.Add(new Store("Temp")); // TODO: Name geneteation
+				
+				_store_list.Add(new Store(_listofStoreNames.ElementAt(i))); // TODO: Name geneteation (Done by Khalid)
 			}
 
 			for (int i = 0; i < num_consumers; i++) {
-				var new_consumer = new Consumer("Temp");
+				var new_consumer = new Consumer(_listOfConsumerNames.ElementAt(i));
 				for (int j = 0; j < _store_list.Count; j++) { // subscribe the consumer to the stores new item event
 					_store_list[j].NewItemEvent += new_consumer.OnNewItem;
 				}
