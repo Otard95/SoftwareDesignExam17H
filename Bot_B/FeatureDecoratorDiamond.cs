@@ -11,7 +11,12 @@
 
         public override string GetDesc()
         {
-            return _original_item.GetDesc() + " Feature: With beautiful South-African Diamonds ";
+            string seperator = " ";
+            if (!_original_item.GetDesc().EndsWith(" "))
+            {
+                seperator = " and ";
+            }
+            return _original_item.GetDesc() + seperator + "with beautiful south-african diamonds";
         }
 
         public override string GetName()

@@ -11,7 +11,12 @@
 
     public override string GetDesc()
     {
-        return _original_item.GetDesc() + " Feature: With Super-duper soft Furry ";
+        string seperator = " ";
+        if (!_original_item.GetDesc().EndsWith(" "))
+        {
+            seperator = " and ";
+        }
+        return _original_item.GetDesc() + seperator+ "with Super-duper soft furry";
     }
 
     public override string GetName()

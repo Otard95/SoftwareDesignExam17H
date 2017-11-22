@@ -21,15 +21,15 @@ namespace Bot_B {
             "plate",
 		};
 		private static string[] _descriptions = {
-			"Simple but usefull",
-			"Huge but light",
-            "Colorful but still cool", 
-            "Cool and hot", 
-            "Weighs next to nothing", 
-            "Cool stickers on", 
-            "Almost new", 
-            "Shaped like a horse", 
-            "Easy and portable", 
+			"Simple but usefull ",
+			"Huge but light ",
+            "Colorful but still cool ", 
+            "Cool and hot ", 
+            "Weighs next to nothing ", 
+            "Cool stickers on ", 
+            "Almost new ", 
+            "Shaped like a horse ", 
+            "Easy and portable ", 
 		};
 
 		private ItemFactory () { } // Prevent initialization
@@ -65,8 +65,9 @@ namespace Bot_B {
 		public static Iitem CreateSpecific (double price, params ItemProperties[] _parameters) {
 
 			Iitem new_item = ItemFactory.Create(price);
-
+			int counter = 0;
 			foreach (ItemProperties prop in _parameters) {
+
 
 				switch (prop) {
                     case ItemProperties.Gold: new_item = new FeatureDecoratorGold(new_item);

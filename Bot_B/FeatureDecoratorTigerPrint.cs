@@ -12,7 +12,12 @@
 
         public override string GetDesc()
         {
-            return _original_item.GetDesc() + " Feature: Covered in beautiful Tiger print "; 
+            string seperator = " ";
+            if (!_original_item.GetDesc().EndsWith(" "))
+            {
+                seperator = " and ";
+            }
+            return _original_item.GetDesc() +seperator+ "covered in beautiful tiger print"; 
         }
 
         public override string GetName()
