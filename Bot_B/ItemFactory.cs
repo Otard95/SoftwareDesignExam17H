@@ -36,7 +36,7 @@ namespace Bot_B {
 
 		public static Iitem Create (double price) {
 
-			var random = new Random();
+			var random = TSRandom.Instance;
 			/*                                     if defferent size pick smallest */
 			int name_desc_index = random.Next( Math.Min(_names.Length, _descriptions.Length) );
 			var new_item = new Item(_names[name_desc_index], price, _descriptions[name_desc_index]);
@@ -48,7 +48,7 @@ namespace Bot_B {
 		public static Iitem CreateRandom (double price) {
 
 			Array values = Enum.GetValues(typeof(ItemProperties));
-			Random random = new Random();
+			TSRandom random = TSRandom.Instance;
 
 			var item_props = new List<ItemProperties>();
 			int i = 0;

@@ -12,6 +12,7 @@ namespace Bot_B {
 		private int _skill;
 		private Log _log;
 		private List<Store> _stores;
+		private TSRandom _rng;
 
 		private bool _running;
 
@@ -19,13 +20,15 @@ namespace Bot_B {
 
 		public Consumer (string name, List<Store> stores) {
 
+			_rng = TSRandom.Instance;
+
 			Name = name;
-			_skill = new Random().Next(0, 100);
+			_skill = _rng.Next(0, 100);
 			_log = Log.Instance;
 			_stores = stores;
 
 			_wich_list = new List<Iitem>();
-			int list_count = new Random().Next(3, 5);
+			int list_count = _rng.Next(3, 5);
 			for (int i = 0; i < list_count; i++) {
 				_wich_list.Add(ItemFactory.CreateRandom(0)); // Price in this case is not imporant
 			}

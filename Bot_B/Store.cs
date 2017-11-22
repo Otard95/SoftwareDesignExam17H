@@ -14,6 +14,7 @@ namespace Bot_B {
 		private List<Iitem> _items;
 		private Log _log;
 		private bool _running;
+		private TSRandom _rng;
 
 		// Public fields/proporties
 		public List<Iitem> Items {
@@ -28,7 +29,8 @@ namespace Bot_B {
 			Name = name;
 			_items = new List<Iitem>();
 			_log = Log.Instance;
-            _lock = new Object();
+      _lock = new Object();
+			_rng = TSRandom.Instance;
 
 			_lock = new object();
 			_running = true;
@@ -92,8 +94,7 @@ namespace Bot_B {
 			while (_running || _items.Count > 0) {
 
 				if (_running) {
-					var rnd = new Random();
-					double price = rnd.Next(10, 5500);
+					double price = _rng.Next(10, 5500);
 					
 					Iitem new_item = ItemFactory.CreateRandom(price);
 					_log.Write(Name, "Made item: " +

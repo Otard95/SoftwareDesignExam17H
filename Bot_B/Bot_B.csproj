@@ -67,6 +67,7 @@
     <Compile Include="Store.cs" />
     <Compile Include="Tests\Bot_BTest.cs" />
     <Compile Include="Tests\StoreTest.cs" />
+    <Compile Include="TSRandom.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

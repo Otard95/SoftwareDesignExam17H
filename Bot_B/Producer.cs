@@ -12,7 +12,7 @@ namespace Bot_B {
 		private string _name;
 		private List<List<ItemProperties>> _presets;
 		private List<Store> _stores;
-		private Random rng;
+		private TSRandom _rng;
 		private	bool _running = true;
 
 		public bool IsRunning
@@ -23,7 +23,7 @@ namespace Bot_B {
 
 		public Producer (List<Store> stores, string name) {
 
-			rng = new Random();
+			_rng = TSRandom.Instance;
 			_name = name;
 			_stores = stores;
 			_presets = new List<List<ItemProperties>>();
@@ -31,12 +31,12 @@ namespace Bot_B {
 			var item_props = new List< ItemProperties>();
 			Array values = Enum.GetValues(typeof(ItemProperties));
 
-			int num_presetes = rng.Next(3, 6);
+			int num_presetes = _rng.Next(3, 6);
 			for (int i = 0; i < num_presetes; i++) {
 				int j = 0;
-				while (rng.Next(10) < ( 7 - (j*1.5) )) {
+				while (_rng.Next(10) < ( 7 - (j*1.5) )) {
 					// TODO: No duplicate addons(ItemProporties)
-					item_props.Add((ItemProperties) values.GetValue(rng.Next(values.Length)));
+					item_props.Add((ItemProperties) values.GetValue(_rng.Next(values.Length)));
 				}
 				_presets.Add(item_props);
 				item_props.Clear();
@@ -58,9 +58,9 @@ namespace Bot_B {
 
 		private void SendItem () {
 			
-			int recieving_store = rng.Next(_stores.Count);
-			int preset = rng.Next(_presets.Count);
-			double price = rng.Next(10, 5500); 
+			int recieving_store = _rng.Next(_stores.Count);
+			int preset = _rng.Next(_presets.Count);
+			double price = _rng.Next(10, 5500); 
 			Iitem item_to_send = ItemFactory.CreateSpecific(price, _presets[preset].ToArray());
 
 			_stores[recieving_store].DeliverItem(item_to_send);

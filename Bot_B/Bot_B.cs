@@ -32,10 +32,10 @@ namespace Bot_B {
 			_listofStoreNames = readFile(@"TextFiles\StoreNames.txt");
 
 			
-			var rng = new Random();
-			int num_stores    = rng.Next(4, 8);
-			int num_consumers = rng.Next(4, 8);
-			int num_producers = rng.Next(4, 8);
+			var _rng = TSRandom.Instance;
+			int num_stores    = _rng.Next(4, 8);
+			int num_consumers = _rng.Next(4, 8);
+			int num_producers = _rng.Next(4, 8);
 
 			for (int i = 0; i < num_stores; i++) {
 				
@@ -50,10 +50,10 @@ namespace Bot_B {
 			for (int i = 0; i < num_producers; i++) {
 
 				// Each producer need a random list of stores to send items to
-				List<Store> delivery_list = _store_list.Where( item => rng.Next(10) < 3 ).ToList();
+				List<Store> delivery_list = _store_list.Where( item => _rng.Next(10) < 3 ).ToList();
 
 				while (delivery_list.Count == 0) { // This list can never be empty
-					delivery_list = _store_list.Where(item => rng.Next(10) < 4).ToList();
+					delivery_list = _store_list.Where(item => _rng.Next(10) < 4).ToList();
 				}
 
 				_producer_list.Add(new Producer(delivery_list, "Temp")); // TODO: Name geneteation
