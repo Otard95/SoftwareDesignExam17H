@@ -11,7 +11,7 @@
 
     public override string GetDesc()
     {
-        string seperator = " ";
+        string seperator = "";
         if (!_original_item.GetDesc().EndsWith(" "))
         {
             seperator = " and ";

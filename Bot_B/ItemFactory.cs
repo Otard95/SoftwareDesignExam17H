@@ -65,7 +65,6 @@ namespace Bot_B {
 		public static Iitem CreateSpecific (double price, params ItemProperties[] _parameters) {
 
 			Iitem new_item = ItemFactory.Create(price);
-			int counter = 0;
 			foreach (ItemProperties prop in _parameters) {
 
 
