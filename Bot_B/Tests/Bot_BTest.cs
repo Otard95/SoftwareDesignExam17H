@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using NUnit.Framework;
 
 namespace Bot_B.Test
@@ -16,10 +17,11 @@ namespace Bot_B.Test
         }
 
         [Test]
-        public void testReadfile()
+        public void TestReadfile()
         {
-            _botB.readFile();
-            List<String> testList = Console.WriteLine("test.txt");
+            
+            List<String> testList = _botB.readFile(@"test.txt");
+            Console.WriteLine(testList);
             
             Assert.True(testList.Count == 4);
             Assert.True(testList.Contains("test1"));

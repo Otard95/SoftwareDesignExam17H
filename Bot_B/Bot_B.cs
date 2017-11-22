@@ -26,8 +26,8 @@ namespace Bot_B {
 			_producer_list = new List<Producer>();
 			_treads        = new List<Thread>();
 			
-			_listOfConsumerNames = readFile("ConsumerNames.txt");
-			_listofStoreNames = readFile("StoreNames.txt");
+			_listOfConsumerNames = readFile(@"TextFiles\ConsumerNames.txt");
+			_listofStoreNames = readFile(@"TextFiles\StoreNames.txt");
 
 			
 			var rng = new Random();
@@ -39,7 +39,7 @@ namespace Bot_B {
 				
 				_store_list.Add(new Store(_listofStoreNames.ElementAt(i))); // TODO: Name geneteation (Done by Khalid)
 			}
-
+ 
 			for (int i = 0; i < num_consumers; i++) {
 				var new_consumer = new Consumer(_listOfConsumerNames.ElementAt(i));
 				for (int j = 0; j < _store_list.Count; j++) { // subscribe the consumer to the stores new item event
