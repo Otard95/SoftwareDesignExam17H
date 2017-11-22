@@ -74,7 +74,6 @@ namespace Bot_B {
 
 			lock (_lock)
 			{
-				Console.ForegroundColor = ConsoleColor.Red; 
 				_items.Add(item);
 				_log.Write(Name, "Recieved item: " +
 														item.GetName() +
@@ -83,13 +82,17 @@ namespace Bot_B {
 														". Sells for: " +
 														item.GetPrice());
 
-				// Output that the sotore got a new item.
-				//Console.WriteLine("{0} - Got the new item: {1} - {2} | Selling for: {3}", Name, item.GetName(), item.GetDesc(), item.GetPrice());
-Console.WriteLine("{0}\n - Got the new item: " +
-                  "{1}\n - " +
-                  "{2}\n | Selling for: " +
-                  "{3}\n", Name, item.GetName(), item.GetDesc(), item.GetPrice());
-		
+                // Output that the sotore got a new item.
+                //Console.WriteLine("{0} - Got the new item: {1} - {2} | Selling for: {3}", Name, item.GetName(), item.GetDesc(), item.GetPrice());
+                lock (Console.Out)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                
+                    Console.WriteLine("{0}\n - Got the new item: " +
+                      "{1}\n - " +
+                      "{2}\n | Selling for: " +
+                      "{3}\n", Name, item.GetName(), item.GetDesc(), item.GetPrice());
+                }
 				
 			}
 

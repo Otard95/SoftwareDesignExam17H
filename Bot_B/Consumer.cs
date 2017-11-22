@@ -90,9 +90,11 @@ namespace Bot_B
                     strings[2],
                     strings[3],
                     strings[4]);
-	            
-	            Console.ForegroundColor = ConsoleColor.Magenta; 
-				Console.WriteLine(output);
+                lock (Console.Out)
+                {
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.WriteLine(output);
+                }
                 //Console.WriteLine("{0," + (Console.BufferWidth - 1) + "}", output);
             }
         }
