@@ -49,6 +49,7 @@ namespace Bot_B {
 
 			if (bought != null) {
 				// right align text
+				Console.ForegroundColor = ConsoleColor.Magenta; 
 				string output = String.Format("{0} - Bought the new item: {1} - {2} | For: {3}", Name, item.GetName(), item.GetDesc(), item.GetPrice());
 				Console.WriteLine("{0," + (Console.BufferWidth - 1) + "}", output);
 			}
