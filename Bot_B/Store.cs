@@ -72,8 +72,9 @@ namespace Bot_B {
 
 		public void DeliverItem (Iitem item) {
 
-			lock (_lock) {
-
+			lock (_lock)
+			{
+				Console.ForegroundColor = ConsoleColor.Red; 
 				_items.Add(item);
 				_log.Write(Name, "Recieved item: " +
 														item.GetName() +
