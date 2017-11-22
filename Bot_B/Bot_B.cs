@@ -15,13 +15,13 @@ namespace Bot_B {
 		private List<Thread>   _treads;
 		private List<Thread>   _consumer_treads;
 		private List<string> _listOfConsumerNames;
-		private List<string> _listofStoreNames; 
-		
+		private List<string> _listofStoreNames;
+		private List<string> _listofProducerNames; 
 
 		public Bot_B () {
 			_listOfConsumerNames = new List<string>();
 			_listofStoreNames = new List<string>();
-		
+			_listofProducerNames = new List<string>(); 
 			_store_list      = new List<Store>();
 			_consumer_list   = new List<Consumer>();
 			_producer_list   = new List<Producer>();
@@ -30,6 +30,7 @@ namespace Bot_B {
 			
 			_listOfConsumerNames = readFile(@"TextFiles\ConsumerNames.txt");
 			_listofStoreNames = readFile(@"TextFiles\StoreNames.txt");
+			_listofProducerNames = readFile(@"TextFiles\ProducerNames.txt");
 
 			
 			var _rng = TSRandom.Instance;
@@ -39,12 +40,12 @@ namespace Bot_B {
 
 			for (int i = 0; i < num_stores; i++) {
 				
-				_store_list.Add(new Store(_listofStoreNames.ElementAt(i))); // TODO: Name geneteation (Done by Khalid)
+				_store_list.Add(new Store(_listofStoreNames.ElementAt(i))); 
 			}
  
 			for (int i = 0; i < num_consumers; i++) {
 				var new_consumer = new Consumer(_listOfConsumerNames.ElementAt(i), _store_list);
-				_consumer_list.Add(new_consumer); // TODO: Name geneteation
+				_consumer_list.Add(new_consumer); 
 			}
 
 			for (int i = 0; i < num_producers; i++) {
@@ -56,7 +57,7 @@ namespace Bot_B {
 					delivery_list = _store_list.Where(item => _rng.Next(10) < 4).ToList();
 				}
 
-				_producer_list.Add(new Producer(delivery_list, "Temp")); // TODO: Name geneteation
+				_producer_list.Add(new Producer(delivery_list, _listofProducerNames.ElementAt(i))); 
 			}
 		}
 
@@ -65,6 +66,7 @@ namespace Bot_B {
 			
 			List<string> _textlList = new List<string>();
 			List<string> shuffledList = new List<string>();
+			Random rnd = new Random();
 
 			try
 			{
@@ -83,7 +85,6 @@ namespace Bot_B {
 				throw;
 			}
 			
-			Random rnd = new Random();
 			
 			shuffledList = _textlList.OrderBy (x => rnd.Next()).ToList();
 			
