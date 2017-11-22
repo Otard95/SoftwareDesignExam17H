@@ -31,6 +31,11 @@ namespace Bot_B {
 			_listOfConsumerNames = readFile(@"TextFiles\ConsumerNames.txt");
 			_listofStoreNames = readFile(@"TextFiles\StoreNames.txt");
 
+			foreach (string p in _listofStoreNames)
+			{
+				Console.WriteLine(p);
+			}
+			
 			
 			var _rng = TSRandom.Instance;
 			int num_stores    = _rng.Next(4, 8);
@@ -64,6 +69,7 @@ namespace Bot_B {
 		public List<string> readFile(string filename) {
 			
 			List<string> _textlList = new List<string>();
+			List<string> shuffledList = new List<string>();
 
 			try
 			{
@@ -81,8 +87,13 @@ namespace Bot_B {
 				Console.WriteLine(e);
 				throw;
 			}
-
-			return _textlList; 
+			
+			Random rnd = new Random();
+			
+			shuffledList = _textlList.OrderBy (x => rnd.Next()).ToList();
+			
+			
+			return shuffledList; 
 		}
 		
 	
