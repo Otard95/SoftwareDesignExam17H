@@ -31,11 +31,6 @@ namespace Bot_B {
 			_listOfConsumerNames = readFile(@"TextFiles\ConsumerNames.txt");
 			_listofStoreNames = readFile(@"TextFiles\StoreNames.txt");
 
-			foreach (string p in _listofStoreNames)
-			{
-				Console.WriteLine(p);
-			}
-			
 			
 			var _rng = TSRandom.Instance;
 			int num_stores    = _rng.Next(4, 8);
