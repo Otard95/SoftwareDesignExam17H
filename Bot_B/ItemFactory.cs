@@ -52,7 +52,7 @@ namespace Bot_B {
 
 			var item_props = new List<ItemProperties>();
 			int i = 0;
-			while (random.Next(10) < (5 - i)) {
+			while (random.Next(10) < (4 - i)) {
 				// TODO: No duplicate addons(ItemProporties)
 				item_props.Add((ItemProperties) values.GetValue(random.Next(values.Length)));
 			    i++; 
