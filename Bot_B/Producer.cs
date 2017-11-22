@@ -60,8 +60,7 @@ namespace Bot_B {
 			
 			int recieving_store = rng.Next(_stores.Count);
 			int preset = rng.Next(_presets.Count);
-			var rnd = new Random();
-			double price = rnd.Next(10, 5500); 
+			double price = rng.Next(10, 5500); 
 			Iitem item_to_send = ItemFactory.CreateSpecific(price, _presets[preset].ToArray());
 
 			_stores[recieving_store].DeliverItem(item_to_send);
