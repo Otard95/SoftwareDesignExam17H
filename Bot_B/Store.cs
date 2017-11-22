@@ -15,7 +15,6 @@ namespace Bot_B {
 		private Log _log;
 		private bool _running;
 
-		public event EventHandler NewItemEvent;
 		// Public fields/proporties
 		public List<Iitem> Items {
 			get {
@@ -83,8 +82,6 @@ namespace Bot_B {
 
 				// Output that the sotore got a new item.
 				Console.WriteLine("{0} - Got the new item: {1} - {2} | Selling for: {3}", Name, item.GetName(), item.GetDesc(), item.GetPrice());
-				
-				NewItemEvent?.Invoke(this, new ItemEventArgs(item)); // Broadcast that the store has a new item
 
 			}
 

@@ -11,14 +11,18 @@ namespace Bot_B {
 		private List<Iitem> _wich_list;
 		private int _skill;
 		private Log _log;
+		private List<Store> _stores;
+
+		private bool _running;
 
 		public string Name { get; }
 
-		public Consumer (string name) {
+		public Consumer (string name, List<Store> stores) {
 
 			Name = name;
 			_skill = new Random().Next(0, 100);
 			_log = Log.Instance;
+			_stores = stores;
 
 			_wich_list = new List<Iitem>();
 			int list_count = new Random().Next(3, 5);
@@ -28,30 +32,45 @@ namespace Bot_B {
 
 		}
 
-		public void OnNewItem(object sender, EventArgs event_args) {
+		private void OnNewItem(Store store, Iitem item) {
 
-			var store = ((Store) sender);
-			var e = (ItemEventArgs) event_args;
-
-			_log.Write(Name, "Heard of a new item in " + store.Name);
+			_log.Write(Name, "Saw a new item in " + store.Name);
 
 			Iitem bought;
-			if (_wich_list.Contains(e.Item)) {
-				bought = store.Buy(e.Item);
+			if (_wich_list.Contains(item)) {
+				bought = store.Buy(item);
 			} else {
 				Thread.Sleep(1);
-				bought = store.Buy(e.Item);
+				bought = store.Buy(item);
 			}
 
 			if (bought != null) {
 				// right align text
-				string output = String.Format("{0} - Bought the new item: {1} - {2} | For: {3}", Name, e.Item.GetName(), e.Item.GetDesc(), e.Item.GetPrice());
+				string output = String.Format("{0} - Bought the new item: {1} - {2} | For: {3}", Name, item.GetName(), item.GetDesc(), item.GetPrice());
 				Console.WriteLine("{0," + (Console.BufferWidth - 1) + "}", output);
 			}
 
 		}
 
-		// public void StartConsumer () { } // Doing event based
+		public void Shutdown() {
+			_running = false;
+		}
+
+		public void StartConsumer () {
+
+			_running = true;
+
+			while (_running) {
+
+				foreach (Store s in _stores) {
+					while (s.Items.Count > 0) {
+						OnNewItem(s, s.Items.First()); // Buy item
+					}
+				} // END foreach
+
+			} // END while running
+
+		}
 
 	}
 }

@@ -13,6 +13,7 @@ namespace Bot_B {
 		private List<Consumer> _consumer_list;
 		private List<Producer> _producer_list;
 		private List<Thread>   _treads;
+		private List<Thread>   _consumer_treads;
 		private List<string> _listOfConsumerNames;
 		private List<string> _listofStoreNames; 
 		
@@ -21,10 +22,11 @@ namespace Bot_B {
 			_listOfConsumerNames = new List<string>();
 			_listofStoreNames = new List<string>();
 		
-			_store_list    = new List<Store>();
-			_consumer_list = new List<Consumer>();
-			_producer_list = new List<Producer>();
-			_treads        = new List<Thread>();
+			_store_list      = new List<Store>();
+			_consumer_list   = new List<Consumer>();
+			_producer_list   = new List<Producer>();
+			_treads          = new List<Thread>();
+			_consumer_treads = new List<Thread>();
 			
 			_listOfConsumerNames = readFile(@"TextFiles\ConsumerNames.txt");
 			_listofStoreNames = readFile(@"TextFiles\StoreNames.txt");
@@ -41,12 +43,8 @@ namespace Bot_B {
 			}
  
 			for (int i = 0; i < num_consumers; i++) {
-				var new_consumer = new Consumer(_listOfConsumerNames.ElementAt(i));
-				for (int j = 0; j < _store_list.Count; j++) { // subscribe the consumer to the stores new item event
-					_store_list[j].NewItemEvent += new_consumer.OnNewItem;
-				}
+				var new_consumer = new Consumer(_listOfConsumerNames.ElementAt(i), _store_list);
 				_consumer_list.Add(new_consumer); // TODO: Name geneteation
-
 			}
 
 			for (int i = 0; i < num_producers; i++) {
@@ -92,19 +90,30 @@ namespace Bot_B {
 		public void Start () {
 
 			// Setup threads for stores and consumers
-			for (int i = 0; i < _store_list.Count; i++) {
-				_treads.Add(new Thread(_store_list[i].StartStore));
+			foreach (Store s in _store_list) {
+				_treads.Add(new Thread(s.StartStore));
 			}
-			for (int i = 0; i < _producer_list.Count; i++) {
-				_treads.Add(new Thread(_producer_list[i].Start));
+			foreach (Producer p in _producer_list) {
+				_treads.Add(new Thread(p.Start));
+			}
+			foreach (Consumer c in _consumer_list) {
+				_consumer_treads.Add(new Thread(c.StartConsumer));
 			}
 
 			// Start all treads
 			foreach (Thread t in _treads) {
 				t.Start();
 			}
+			// Start all consumer treads
+			foreach (Thread t in _consumer_treads) {
+				t.Start();
+			}
 			// Make sure all threads are proporly running
 			foreach (Thread t in _treads) {
+				while (!t.IsAlive) ;
+			}
+			// Make sure all consumer threads are proporly running
+			foreach (Thread t in _consumer_treads) {
 				while (!t.IsAlive) ;
 			}
 			Thread.Sleep(1);
@@ -122,6 +131,16 @@ namespace Bot_B {
 
 			// Join all threads to make sure that they all are finished 
 			foreach (Thread t in _treads) {
+				t.Join();
+			}
+
+			// stop and join all consumer threads
+			foreach (Consumer c in _consumer_list) {
+				c.Shutdown();
+			}
+
+			// Join all threads to make sure that they all are finished 
+			foreach (Thread t in _consumer_treads) {
 				t.Join();
 			}
 
