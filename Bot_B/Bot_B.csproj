@@ -66,6 +66,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Store.cs" />
     <Compile Include="Tests\Bot_BTest.cs" />
+    <Compile Include="Tests\ItemFactoryTest.cs" />
     <Compile Include="Tests\StoreTest.cs" />
     <Compile Include="TSRandom.cs" />
   </ItemGroup>

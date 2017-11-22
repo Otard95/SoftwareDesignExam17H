@@ -16,7 +16,7 @@ namespace Bot_B.Test
             _botB = new Bot_B();
         }
 
-        [Test]
+        [Test]//Files need to be in the test build folder to work
         public void TestReadfile()
         {
             
