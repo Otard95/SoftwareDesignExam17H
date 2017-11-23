@@ -9,7 +9,7 @@ namespace Bot_B
 {
     class Consumer
     {
-        private List<Iitem> _wich_list;
+        private List<Iitem> _wish_list;
         private int _skill;
         private Log _log;
         private List<Store> _stores;
@@ -28,11 +28,11 @@ namespace Bot_B
             _log = Log.Instance;
             _stores = stores;
 
-            _wich_list = new List<Iitem>();
+            _wish_list = new List<Iitem>();
             int list_count = _rng.Next(3, 5);
             for (int i = 0; i < list_count; i++)
             {
-                _wich_list.Add(ItemFactory.CreateRandom(0)); // Price in this case is not imporant
+                _wish_list.Add(ItemFactory.CreateRandom(0)); // Price in this case is not imporant
             }
         }
 
@@ -41,7 +41,7 @@ namespace Bot_B
             _log.Write(Name, "Saw a new item in " + store.Name);
 
             Iitem bought;
-            if (_wich_list.Contains(item))
+            if (_wish_list.Contains(item))
             {
                 bought = store.Buy(item);
             }
@@ -60,7 +60,7 @@ namespace Bot_B
                     "- Bought the new item: ",
                     "- " + item.GetName(),
                     item.GetDesc(),
-                    "| For: " + item.GetPrice()
+                    "| For: " + item.GetPrice() + " YEN"
                 };
                 int longestString = 0;
 
