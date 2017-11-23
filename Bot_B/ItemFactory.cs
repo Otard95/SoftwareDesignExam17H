@@ -61,14 +61,10 @@ namespace Bot_B {
 				while (true)
 				{
 					var nextProperty = values.GetValue(random.Next(values.Length));
-					if (!properties_chosen.Contains(nextProperty))
-					{
-						properties_chosen.Add(nextProperty);
-						break;
-					}
+					if (properties_chosen.Contains(nextProperty)) continue;
+					properties_chosen.Add(nextProperty);
+					break;
 				} 
-				
-				
 				
 				item_props.Add((ItemProperties) properties_chosen[properties_chosen.Count-1]);
 			    i++; 
