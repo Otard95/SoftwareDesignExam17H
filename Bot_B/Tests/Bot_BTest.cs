@@ -11,7 +11,7 @@ namespace Bot_B.Test
         private Bot_B _botB;
 
         [SetUp]
-        public void init()
+        public void Init()
         {
             _botB = new Bot_B();
         }
