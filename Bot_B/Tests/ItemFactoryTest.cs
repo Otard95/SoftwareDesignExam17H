@@ -8,16 +8,14 @@ namespace Bot_B.Test
     [TestFixture]
     public class ItemFactoryTest
     {
-        private List<Iitem> items;
         
         [SetUp]
-        public void init()
+        public void Init()
         {
-            items = new List<Iitem>();
         }
 
         [Test]
-        public void createjhTest()
+        public void CreatejhTest()
         { 
             Iitem item =ItemFactory.CreateRandom(99.99);
            
@@ -25,7 +23,7 @@ namespace Bot_B.Test
         }
 
         [Test]
-        public void createTest()
+        public void CreateTest()
         { 
             Iitem item =ItemFactory.Create(99.99);
            

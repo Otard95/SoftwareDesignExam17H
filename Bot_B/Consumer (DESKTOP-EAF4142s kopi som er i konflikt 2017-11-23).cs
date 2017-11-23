@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
-
+\
 namespace Bot_B
 {
     class Consumer
@@ -54,6 +54,8 @@ namespace Bot_B
             if (bought != null)
             {
                 // right align text
+                //string output = String.Format("{0} - Bought the new item: {1} - {2} | For: {3}", Name, item.GetName(), item.GetDesc(), item.GetPrice());
+                //Console.WriteLine("{0," + (Console.BufferWidth - 1) + "}", output);
                 string[] strings =
                 {
                     Name,
@@ -88,11 +90,9 @@ namespace Bot_B
                     strings[2],
                     strings[3],
                     strings[4]);
-                lock (Console.Out)
-                {
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    Console.WriteLine(output);
-                }
+	            
+	            Console.ForegroundColor = ConsoleColor.Magenta; 
+				Console.WriteLine(output);
                 //Console.WriteLine("{0," + (Console.BufferWidth - 1) + "}", output);
             }
         }
