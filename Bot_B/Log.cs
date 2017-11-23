@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework.Constraints;
 
 namespace Bot_B {
 	class Log {
@@ -11,9 +13,11 @@ namespace Bot_B {
 
 		private static Log _instace = null;
 		private List<LogItem> _entries;
+		private StreamWriter sw; 
 
 		private Log () {
 			_entries = new List<LogItem>();
+			
 		}
 
 		public static Log Instance {
@@ -32,7 +36,6 @@ namespace Bot_B {
 				_entries.Add(item);
 
 			}
-
 		}
 
 		public void Write (string sender, string msg) {
@@ -45,10 +48,33 @@ namespace Bot_B {
 
 		public void Save () {
 
-			/*
-			 * ## Save to file
-			 * ## If we have time
-			 */
+			
+			lock (_lock)
+			{
+				
+				try
+				{
+					sw = new StreamWriter(@"TextFiles\Logging.txt");
+
+					for (int i = 0; i < _entries.Count; i++)
+					{
+						sw.WriteLine("Timestamp: " + _entries.ElementAt(i).Timestamp + 
+						             "\n Sender: " + _entries.ElementAt(i).Sender +
+						         	 "\n Message: " + _entries.ElementAt(i).Message);
+						
+						sw.Write("\n");
+						
+					}
+					
+					
+				}
+				catch (Exception e)
+				{
+					Console.WriteLine(e);
+
+				}
+
+			}
 
 		}
 

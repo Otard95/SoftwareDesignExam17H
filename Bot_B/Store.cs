@@ -39,7 +39,7 @@ namespace Bot_B {
 
 		public Iitem Buy (Iitem item) {
 
-			lock (_lock) { // Lock so we don't have two threads trying to buy the same thing
+			lock (_lock){ // Lock so we don't have two threads trying to buy the same thing
 
 				// is the item still for sale?
 				if (_items.Contains(item)) { // yes
