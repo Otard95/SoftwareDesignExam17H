@@ -54,18 +54,23 @@ namespace Bot_B {
 				
 				try
 				{
-					sw = new StreamWriter(@"TextFiles\Logging.txt");
-
+					sw = new StreamWriter(@"TextFiles\Logging.txt", append: true);
+					
+					sw.WriteLine("Start of the program");
+					sw.WriteLine(_entries.ElementAt(0).Timestamp);
+					
 					for (int i = 0; i < _entries.Count; i++)
 					{
-						sw.WriteLine("Timestamp: " + _entries.ElementAt(i).Timestamp + 
-						             "\n Sender: " + _entries.ElementAt(i).Sender +
-						         	 "\n Message: " + _entries.ElementAt(i).Message);
-						
-						sw.Write("\n");
+						sw.WriteLine( "\n Sender: " + _entries.ElementAt(i).Sender +
+					         	 "\n Message: " + _entries.ElementAt(i).Message);
+								
 						
 					}
 					
+					sw.WriteLine("______________________________________________________________\n ");
+					
+					
+					sw.Close();
 					
 				}
 				catch (Exception e)
