@@ -14,34 +14,34 @@ namespace Bot_B.Test
   [TestFixture]
   public class StoreTests
   {
-    private Store store;
-    private Iitem testItem;
+    private Store _store;
+    private Iitem _testItem;
     
     [SetUp]
     public void init()
     {
-      store = new Store("test");
-      testItem = new Item("Audi", 100, "Dette er en bil");
+      _store = new Store("test");
+      _testItem = new Item("Audi", 100, "Dette er en bil");
     }
     
     [Test]// test deliver and buy method
     public void TestIfBuyDeliverTheItemIfExistInStore()
     {
-      store.DeliverItem(testItem);
-      var testItem2 = store.Buy(testItem);
+      _store.DeliverItem(_testItem);
+      var testItem2 = _store.Buy(_testItem);
       
-      Assert.True(testItem2.Equals(testItem));
-      Assert.True(store.Items.Count == 0);
+      Assert.True(testItem2.Equals(_testItem));
+      Assert.True(_store.Items.Count == 0);
     }
 
     [Test]
     public void TestIfStartStoreAddItems()
     {
-      Thread a = new Thread(store.StartStore);
+      Thread a = new Thread(_store.StartStore);
       a.Start();
       Thread.Sleep(3000);
-      store.Shutdown();
-      Assert.True(store.Items.Count == 3);
+      _store.Shutdown();
+      Assert.True(_store.Items.Count == 3);
 
     }
   }

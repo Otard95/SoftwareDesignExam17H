@@ -90,7 +90,7 @@ namespace Bot_B {
 	                Console.WriteLine("{0}\n - Got the new item: " +
 	                                  "{1}\n - " +
 	                                  "{2}\n | Selling for: " +
-	                                  "{3} YEN\n", Name, item.GetName(), item.GetDesc(), item.GetPrice()); 
+	                                  "{3} ¥\n", Name, item.GetName(), item.GetDesc(), item.GetPrice()); 
 
 
 

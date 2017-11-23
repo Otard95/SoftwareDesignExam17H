@@ -60,7 +60,7 @@ namespace Bot_B
                     "- Bought the new item: ",
                     "- " + item.GetName(),
                     item.GetDesc(),
-                    "| For: " + item.GetPrice() + " YEN"
+                    "| For: " + item.GetPrice() + " ¥"
                 };
                 int longestString = 0;
 
