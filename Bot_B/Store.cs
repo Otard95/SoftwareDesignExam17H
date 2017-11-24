@@ -7,36 +7,47 @@ using System.Threading;
 namespace Bot_B {
 	class Store {
 
-		// Lock for thread safe opperations
-		private Object _lock;
-
 		// Private fields
+		private Object _lock;
 		private List<Iitem> _items;
 		private Log _log;
 		private bool _running;
 		private TSRandom _rng;
 
-		// Public fields/proporties
+
+		/**
+		 * Public fields/proporties
+		 */
 		public List<Iitem> Items {
 			get {
 				return _items;
 			}
 		}
+		
+		/**
+ 		* Public fields/proporties
+ 		*/
+		
 		public string Name { get; }
-
+		
 		public Store (string name) {
 
 			Name = name;
 			_items = new List<Iitem>();
 			_log = Log.Instance;
-      _lock = new Object();
+      		_lock = new Object();
 			_rng = TSRandom.Instance;
 
 			_lock = new object();
 			_running = true;
 
 		}
-
+		
+		/**
+		 *	This method will let the consumer buy the item one at the time and then
+		 * 	return the item. The method will also write to a logg of the process off buying an item.  
+		 */
+		
 		public Iitem Buy (Iitem item) {
 
 			lock (_lock){ // Lock so we don't have two threads trying to buy the same thing
@@ -69,7 +80,13 @@ namespace Bot_B {
 			}
 
 		}
-
+		
+		/**
+		 *	After generating a list of Items in the StartStore method Deliver method will put every
+		 * 	Item up for sale one by one so that the Consumer knows what's for sale. DeliverItem method
+		 * 	will also write a log for every Item recived to a file. 
+		 */
+		
 		public void DeliverItem (Iitem item) {
 
 			lock (_lock)
@@ -99,7 +116,12 @@ namespace Bot_B {
 			}
 
 		}
-
+		
+		/**
+		 * This method will start the Store and generete a Random of Items and
+		 * put a pricetag on it. 
+		 */
+		
 		public void StartStore () {
 
 			while (_running || _items.Count > 0) {

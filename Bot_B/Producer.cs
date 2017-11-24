@@ -14,13 +14,20 @@ namespace Bot_B {
 		private List<Store> _stores;
 		private TSRandom _rng;
 		private	bool _running = true;
-
+		
+		/**
+		 * A proportie for the boolean _running.
+		 */
 		public bool IsRunning
 		{
 			get => _running;
 			set => _running = value;
 		}
-
+		
+		/**
+		 * The constructer takes a List of Stores and a name in the
+		 * parameters. 
+		 */
 		public Producer (List<Store> stores, string name) {
 
 			_rng = TSRandom.Instance;
@@ -43,7 +50,11 @@ namespace Bot_B {
 			}
 
 		}
-
+		
+		/**
+		 * Every second the Start method will continue to call on the SendItem method every second
+		 * which will start creating the items and send them to the stores. As long as the While loop is true. 
+		 */
 		public void Start ()
 		{
 			while (_running)
@@ -53,7 +64,10 @@ namespace Bot_B {
 			}
 
 		}
-
+		
+		/**
+		 * Creating a method that can stop tg
+		 */
 		public void Shutdown () => _running = false;
 
 		private void SendItem () {

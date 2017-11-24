@@ -8,18 +8,21 @@ using NUnit.Framework.Constraints;
 
 namespace Bot_B {
 	class Log {
-
+		
+		//Fields for the Class Log
 		private Object _lock = new Object();
-
 		private static Log _instace = null;
 		private List<LogItem> _entries;
 		private StreamWriter sw; 
-
+		
+		
 		private Log () {
 			_entries = new List<LogItem>();
 			
 		}
-
+		/*
+		 * Log Instance allows us to create a instance of the class.
+		 */
 		public static Log Instance {
 			get {
 				if (_instace == null) {
@@ -28,7 +31,12 @@ namespace Bot_B {
 				return _instace;
 			}
 		}
-
+		
+		/**
+		 *  Puts every Item object in a list so that its easier for us to later on print the
+		 * 	proccess of the program. The method is equipped with a lock method so that Items can
+		 * 	be added to the list one by one. 
+		 */
 		public void Write (LogItem item) {
 
 			lock(_lock) {
@@ -37,7 +45,11 @@ namespace Bot_B {
 
 			}
 		}
-
+		
+		/**
+		 * Write method will create a LogItem Object based on the parameters and then
+		 * send the object to Write(LogItem item) method.
+		 */
 		public void Write (string sender, string msg) {
 
 			LogItem new_item = new LogItem(sender, msg);
@@ -45,7 +57,12 @@ namespace Bot_B {
 			Write(new_item);
 
 		}
-
+		
+		/**
+		 * The Save method will start the proccess for creating a textfile and
+		 * write the whole proccess of the program. Every Items that has been created
+		 * and sold. It will also append to the same file for everytime you run the program. 
+		 */
 		public void Save () {
 
 			
