@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Bot_B {
 	class Producer {
@@ -72,12 +68,12 @@ namespace Bot_B {
 
 		private void SendItem () {
 			
-			int recieving_store = _rng.Next(_stores.Count);
+			int recievingStore = _rng.Next(_stores.Count);
 			int preset = _rng.Next(_presets.Count);
 			double price = _rng.Next(10, 5500); 
-			Iitem item_to_send = ItemFactory.CreateSpecific(price, _presets[preset].ToArray());
+			Iitem itemToSend = ItemFactory.CreateSpecific(price, _presets[preset].ToArray());
 
-			_stores[recieving_store].DeliverItem(item_to_send);
+			_stores[recievingStore].DeliverItem(itemToSend);
 
 		}
 

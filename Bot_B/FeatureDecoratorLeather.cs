@@ -7,9 +7,9 @@
         
         
         
-        public FeatureDecoratorLeather(Iitem original_item)
+        public FeatureDecoratorLeather(Iitem originalItem)
         {
-            _original_item = original_item; 
+            _original_item = originalItem; 
         }
         
         /**
