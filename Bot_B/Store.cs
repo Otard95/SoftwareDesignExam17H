@@ -16,12 +16,8 @@ namespace Bot_B {
 		/**
 		 * Public fields/proporties
 		 */
-		public List<Iitem> Items {
-			get {
-				return _items;
-			}
-		}
-		
+		public List<Iitem> Items => _items;
+
 		/**
  		* Public fields/proporties
  		*/
@@ -53,17 +49,17 @@ namespace Bot_B {
 				// is the item still for sale?
 				if (_items.Contains(item)) { // yes
 					int index = _items.IndexOf(item);
-					Iitem item_to_return = _items[index];
+					Iitem itemToReturn = _items[index];
 					_items.Remove(item);
 
 					_log.Write(Name, "Sold item: " +
-														item_to_return.GetName() +
+														itemToReturn.GetName() +
 														" - " +
-														item_to_return.GetDesc() +
+														itemToReturn.GetDesc() +
 														". For: " +
-														item_to_return.GetPrice());
+														itemToReturn.GetPrice());
 
-					return item_to_return;
+					return itemToReturn;
 				} else { // no
 
 					_log.Write(Name, "Item allready sold: " +
@@ -127,14 +123,14 @@ namespace Bot_B {
 				if (_running) {
 					double price = _rng.Next(10, 5500);
 					
-					Iitem new_item = ItemFactory.CreateRandom(price);
+					Iitem newItem = ItemFactory.CreateRandom(price);
 					_log.Write(Name, "Made item: " +
-														new_item.GetName() +
+														newItem.GetName() +
 														" - " +
-														new_item.GetDesc() +
+														newItem.GetDesc() +
 														". Sells For: " +
-														new_item.GetPrice());
-					DeliverItem(new_item);
+														newItem.GetPrice());
+					DeliverItem(newItem);
 				}
 				
 				Thread.Sleep(1000);

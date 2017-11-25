@@ -8,9 +8,9 @@
      /**
       * Constructer of the class that takes a datatype of Iitem.
       */
-    public FeatureDecoratorFurry(Iitem original_item)
+    public FeatureDecoratorFurry(Iitem originalItem)
     {
-        _original_item = original_item;
+        _original_item = originalItem;
     }
     
     /**

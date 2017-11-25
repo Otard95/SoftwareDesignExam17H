@@ -7,9 +7,9 @@
         //Fields of the class. 
         private Iitem _original_item;
 
-        public FeatureDecoratorTigerPrint(Iitem original_item)
+        public FeatureDecoratorTigerPrint(Iitem originalItem)
         {
-            _original_item = original_item; 
+            _original_item = originalItem; 
         }
         
         /**
