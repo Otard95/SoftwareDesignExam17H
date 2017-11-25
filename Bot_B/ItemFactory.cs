@@ -31,6 +31,9 @@ namespace Bot_B {
 
 		private ItemFactory () { } // Prevent initialization
 
+		/**
+		 * Creates a plain item without any features.
+		 */
 		public static Iitem Create (double price) {
 
 			var random = TSRandom.Instance;
@@ -42,6 +45,9 @@ namespace Bot_B {
 
 		}
 
+		/**
+		 * Creates an item with a random range of features
+		 */
 		public static Iitem CreateRandom (double price) {
 
 			Array values = Enum.GetValues(typeof(ItemProperties));
@@ -69,6 +75,9 @@ namespace Bot_B {
 			
 		}
 
+		/**
+		 * Creates an item with fixed features
+		 */
 		public static Iitem CreateSpecific (double price, params ItemProperties[] parameters) {
 
 			Iitem newItem = Create(price);

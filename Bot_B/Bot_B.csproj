@@ -56,7 +56,6 @@
     <Compile Include="Iitem.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="ItemDecorator.cs" />
-    <Compile Include="ItemEventArgs.cs" />
     <Compile Include="ItemFactory.cs" />
     <Compile Include="ItemProperties.cs" />
     <Compile Include="Log.cs" />

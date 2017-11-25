@@ -1,6 +1,10 @@
 ﻿using System;
 
 namespace Bot_B {
+	/**
+	 * does the same as the Random class but locks the methods to make them thred safe
+	 * and prevent duplicate values when used.
+	 */
 	class TSRandom {
 
 		private Object _lock = new Object();

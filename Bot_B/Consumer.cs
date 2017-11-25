@@ -101,6 +101,8 @@ namespace Bot_B
                 {
                     Console.ForegroundColor = ConsoleColor.Magenta;
                     Console.WriteLine(output);
+                    Console.ForegroundColor = ConsoleColor.White;
+
                 }
                 //Console.WriteLine("{0," + (Console.BufferWidth - 1) + "}", output);
             }

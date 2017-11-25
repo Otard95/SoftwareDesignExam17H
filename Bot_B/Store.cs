@@ -103,6 +103,7 @@ namespace Bot_B {
 	                                  "{2}\n | Selling for: " +
 	                                  "{3} ¥\n", Name, item.GetName(), item.GetDesc(), item.GetPrice()); 
 
+	                Console.ForegroundColor = ConsoleColor.White;
 
 
                 }

@@ -38,7 +38,6 @@ namespace Bot_B {
 			for (int i = 0; i < num_presetes; i++) {
 				int j = 0;
 				while (_rng.Next(10) < ( 7 - (j*1.5) )) {
-					// TODO: No duplicate addons(ItemProporties)
 					item_props.Add((ItemProperties) values.GetValue(_rng.Next(values.Length)));
 				}
 				_presets.Add(item_props);
@@ -53,7 +52,7 @@ namespace Bot_B {
 		 */
 		public void Start ()
 		{
-			while (_running)
+			while (IsRunning)
 			{
 				SendItem();
 				Thread.Sleep(1000);
