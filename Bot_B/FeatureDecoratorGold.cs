@@ -5,9 +5,9 @@
         //Fields of the class. 
         private Iitem _original_item;
 
-        public FeatureDecoratorGold(Iitem orginal_item)
+        public FeatureDecoratorGold(Iitem orginalItem)
         {
-            _original_item = orginal_item;
+            _original_item = orginalItem;
         }
         
         

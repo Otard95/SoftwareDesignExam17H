@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
 
 namespace Bot_B {
 	class Program {
 		static void Main (string[] args) {
-			
-			Console.SetWindowSize(164, 50);
 
 			Thread.Sleep(1000); // Wait for console size to change
 

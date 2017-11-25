@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bot_B {
 	struct LogItem {
@@ -16,11 +12,11 @@ namespace Bot_B {
 		 *	A constructer that takes to Strings in the parameters.
 		 * 	sender's information and their message. 
 		 */
-		public LogItem (string _sender, string _msg) {
+		public LogItem (string sender, string msg) {
 
 			Timestamp = DateTime.Now;
-			Sender = _sender;
-			Message = _msg;
+			Sender = sender;
+			Message = msg;
 
 		}
 

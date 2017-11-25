@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bot_B {
+	/**
+	 * does the same as the Random class but locks the methods to make them thred safe
+	 * and prevent duplicate values when used.
+	 */
 	class TSRandom {
 
 		private Object _lock = new Object();
