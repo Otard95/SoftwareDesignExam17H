@@ -66,7 +66,8 @@ namespace Bot_B {
 		}
 		
 		/**
-		 * Creating a method that can stop tg
+		 * Creating a method that can stop creating the items. Notice
+		 * this method will not stop the threads.
 		 */
 		public void Shutdown () => _running = false;
 
