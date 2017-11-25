@@ -9,7 +9,6 @@ namespace Bot_B
     {
         //Fields for the class Consumer
         private List<Iitem> _wish_list;
-        private int _skill;
         private Log _log;
         private List<Store> _stores;
         private TSRandom _rng;
@@ -25,7 +24,6 @@ namespace Bot_B
             _rng = TSRandom.Instance;
 
             Name = name;
-            _skill = _rng.Next(0, 100);
             _log = Log.Instance;
             _stores = stores;
 

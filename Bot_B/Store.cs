@@ -142,7 +142,6 @@ namespace Bot_B {
 
 		public void Shutdown() => _running = false;
 
-		// public List<Iitem> CommitBurglary (int _skill) { }
 
 	}
 }
