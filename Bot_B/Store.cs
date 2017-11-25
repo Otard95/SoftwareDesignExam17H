@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 
 namespace Bot_B {
@@ -118,7 +116,7 @@ namespace Bot_B {
 		}
 		
 		/**
-		 * This method will start the Store and generete a Random of Items and
+		 * This method will start the Store and generete random items and
 		 * put a pricetag on it. 
 		 */
 		

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
 
 namespace Bot_B {
@@ -125,7 +123,7 @@ namespace Bot_B {
 			}
 			Thread.Sleep(1);
 
-			// Lests give the stores some time to run.
+			// Lets give the stores some time to run.
 			Thread.Sleep(4000);
 
 			// Now lets gracefully stop all threads
